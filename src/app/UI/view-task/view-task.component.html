@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="form-group">
+    <label>Task</label>
+    <input type="text" name="FilterTask" [(ngModel)]="FilterTask" />
+  
+    <label>Parent Task</label>
+    <input type="text" name="FilterParentTask" [(ngModel)]="FilterParentTask" />
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group">
+    <label>Priority From</label>
+    <input type="text" name="FilterPriorityFrom" [(ngModel)]="FilterPriorityFrom" />
+    <label>Priority To</label>
+    <input type="text" name="FilterPriorityTo" [(ngModel)]="FilterPriorityTo" />
+  </div>
+  <div class="form-group">
+    <label>Start Date</label>
+    <input type="text" name="FilterStartDate" [(ngModel)]="FilterStartDate" />
+
+    <label>End Date</label>
+    <input type="text" name="FilterEndDate" [(ngModel)]="FilterEndDate" />
+  </div>
+</div>
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Parent Task</th>
+      <th>Priority</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of Tasks | taskfilter : { TaskName: FilterTask, ParentTaskName : FilterParentTask, StartDt : FilterStartDate, EndDt : FilterEndDate } : FilterPriorityFrom : FilterPriorityTo ">
+      <td class="hidden">{{ task.TaskId }}</td>
+      <td>{{ task.TaskName }}</td>
+      <td class="hidden">{{ task.ParentTaskId }}</td>
+      <td>{{ task.ParentTaskName }}</td>
+      <td>{{ task.Priority }}</td>
+      <td>{{ task.StartDt | date }}</td>
+      <td>{{ task.EndDt | date }}</td>
+      <td>
+        <button class="btn btn-info" [routerLink]="['/edit-task', task.TaskId ]" [disabled]="task.TaskStatus=='N'"  >Edit</button>
+        <button class="btn btn-danger margin-left" (click)="endTask(task)" [disabled]="task.TaskStatus=='N'">End Task</button>
+        <button class="btn btn-danger margin-left" (click)="deleteTask(task)" > Delete</button> 
+      </td>
+    </tr>
+  </tbody>
+</table>

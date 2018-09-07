@@ -1,0 +1,47 @@
+<form class="form-horizontal form-width" [formGroup]="addTask" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="taskName">Task:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="taskName" placeholder="Enter Task Name" formControlName="TaskName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="Priority">Priority:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Priority" placeholder="Enter Priority" formControlName="Priority">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="ParentTask">Parent Task:</label>
+    <div class="col-sm-10">
+      <select class="form-control"  formControlName="ParentTaskId">
+          <option *ngFor="let parentTask of parentTasks" [ngValue]="parentTask.TaskId">
+            {{ parentTask.TaskName}}
+          </option>
+        </select>
+
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="StartDt">Start Date:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="StartDt" placeholder="Enter Start Date" formControlName="StartDt">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="EndDt">End Date:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="EndDt" placeholder="Enter End Date" formControlName="EndDt">
+    </div>
+  </div>
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">Add Task</button>
+      <button type="button" (click)="cancel()" class="btn btn-warning margin-left" >Cancel</button>
+    </div>
+  </div>
+</form>
+
+
+
+
