@@ -19,8 +19,7 @@ export class EditTaskComponent implements OnInit {
   parentTasks:Task[];
 
   constructor(private route: ActivatedRoute, private taskDetailService: TaskdetailService,private formBuilder:FormBuilder, private router: Router, private parserFormatter: NgbDateParserFormatter) {
-    
-    
+        
   }
 
   ngOnInit() {
