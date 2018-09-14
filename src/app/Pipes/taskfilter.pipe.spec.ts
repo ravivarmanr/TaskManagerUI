@@ -1,8 +1,8 @@
-import { TaskfilterPipe } from './taskfilter.pipe';
+import { TaskFilterPipe } from './taskfilter.pipe';
 
 describe('TaskfilterPipe', () => {
   it('create an instance', () => {
-    const pipe = new TaskfilterPipe();
+    const pipe = new TaskFilterPipe();
     expect(pipe).toBeTruthy();
   });
 });

@@ -23,9 +23,13 @@ export class TaskdetailService {
   constructor(private http : HttpClient) { }
 
   baseUrl: string = environment.apiUrl;
+
+  
   
   getTaskList(){
+    console.log(this.baseUrl);
     return this.http.get<Task[]>(this.baseUrl + '/GetAll');
+    
   }
 
   createTask(task: Task) {

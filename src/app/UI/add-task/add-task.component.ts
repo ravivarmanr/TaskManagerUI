@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
- import { FormBuilder, NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
 // import { DatePickerOptions } from 'ng2-datepicker';
 import { Router } from '@angular/router';
 import { TaskdetailService } from 'src/app/Services/taskdetail.service'
 import { Task } from '../../Models/task';
+import {NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { Task } from '../../Models/task';
 
 export class AddTaskComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private taskDetailService: TaskdetailService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private taskDetailService: TaskdetailService,private parserFormatter: NgbDateParserFormatter) { }
 
  // addtask = 'Add Task';
   parentTasks:Task[];
@@ -34,6 +35,10 @@ export class AddTaskComponent implements OnInit {
 
   onSubmit() {
     this.addTask.value.TaskStatus = 'Y';
+    
+   this.addTask.value.StartDt=this.parserFormatter.format(this.addTask.value.StartDt);
+   this.addTask.value.EndDt=this.parserFormatter.format(this.addTask.value.EndDt);
+  //this.addTask.value.StartDt="9/5/2018";
     this.taskDetailService.createTask(this.addTask.value)
       .subscribe( data => {
         this.router.navigate(['view-task']);

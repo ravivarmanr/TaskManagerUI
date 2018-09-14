@@ -11,6 +11,7 @@ import { EditTaskComponent } from './UI/edit-task/edit-task.component';
 import { AppRoutingModule }  from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { TaskFilterPipe } from './Pipes/taskfilter.pipe';
+import { NgbDatepickerModule,NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,15 +20,18 @@ import { TaskFilterPipe } from './Pipes/taskfilter.pipe';
     EditTaskComponent,
     ViewTaskComponent,
     TaskFilterPipe
+    
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbDatepickerModule
   ],
-  providers: [TaskdetailService],
+  providers: [TaskdetailService,NgbDatepickerConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
