@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "jenkinsBuild": "ng test --watch = false && ng build --prod"
+    "jenkinsBuild": "ng test --watch=false && ng build --prod"
   },
   "private": true,
   "dependencies": {
