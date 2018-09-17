@@ -1,3 +1,21 @@
 .margin-left{
     margin-left:10px;
 }
+.label-width{
+    width: 90px;
+}
+.priority-width{
+    width: 15%;
+}
+.date-width{
+    width: 25%;
+}
+.marjin-right10{
+ margin-right: 10px;
+}
+.marjinleft-zero{
+    margin-left:0px;
+}
+.pading-bottom{
+    padding-bottom: 10px;
+}

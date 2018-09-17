@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
-// import { DatePickerOptions } from 'ng2-datepicker';
 import { Router } from '@angular/router';
 import { TaskdetailService } from 'src/app/Services/taskdetail.service'
 import { Task } from '../../Models/task';
@@ -32,6 +31,7 @@ export class AddTaskComponent implements OnInit {
     });
   }
    
+get Priority() { return this.addTask.get('Priority'); }
 
   onSubmit() {
     this.addTask.value.TaskStatus = 'Y';

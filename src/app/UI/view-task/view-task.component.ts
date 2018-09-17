@@ -3,6 +3,7 @@ import { FormBuilder, NgForm, FormGroup, Validators, FormControl } from '@angula
 import { Router } from '@angular/router';
 import { TaskdetailService } from 'src/app/Services/taskdetail.service';
 import { Task } from 'src/app/Models/task';
+import {NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-view-task',
@@ -13,7 +14,6 @@ import { Task } from 'src/app/Models/task';
 export class ViewTaskComponent implements OnInit {
 
   Tasks: Task[];
-
   viewTask: FormGroup;
 
   FilterTask: string;
@@ -23,8 +23,8 @@ export class ViewTaskComponent implements OnInit {
   FilterStartDate: string;
   FilterEndDate: string;
   
-  constructor(private taskDetailService: TaskdetailService, private router: Router, private formBuilder:FormBuilder) { }
-
+  constructor(private taskDetailService: TaskdetailService, private router: Router, private formBuilder:FormBuilder, private parserFormatter: NgbDateParserFormatter) { }
+  
 
   ngOnInit() {
     this.loadTaskDetails();
@@ -43,15 +43,15 @@ export class ViewTaskComponent implements OnInit {
       .subscribe( data => {
         this.loadTaskDetails();
       });
-    alert('Task ended!!!'+ task.TaskId);
+    alert('Task ended!!!');
   }
 
-  deleteTask(task: Task): void {
-    // this.taskDetailService.endTask(task.TaskId)
-    //   .subscribe( data => {
-    //     this.loadTaskDetails();
-    //   });
-    alert('Task will be deleted!!!'+ task.TaskId);
-  }
+  // deleteTask(task: Task): void {
+  //   // this.taskDetailService.endTask(task.TaskId)
+  //   //   .subscribe( data => {
+  //   //     this.loadTaskDetails();
+  //   //   });
+  //   alert('Task will be deleted!!!'+ task.TaskId);
+  // }
 
 }
