@@ -13,18 +13,18 @@
         </div>
       </div>
     </div>
-    <!-- <br> -->
     <div class="row">
       <div class="col-md-6 col-sm-12">
         <div class="form-group  pading-bottom">
-          
-            <label class="label-width">Priority From</label>
-            <input class="form-control priority-width marjin-right10" type="number" name="FilterPriorityFrom" [(ngModel)]="FilterPriorityFrom" />
-          
-          
-            <label class="label-width">Priority To</label>
-            <input class="form-control priority-width" type="number" name="FilterPriorityTo" [(ngModel)]="FilterPriorityTo"  />
-          
+
+          <label class="label-width">Priority From</label>
+          <input class="form-control priority-width marjin-right10" type="number" name="FilterPriorityFrom" [(ngModel)]="FilterPriorityFrom"
+          />
+
+
+          <label class="label-width">Priority To</label>
+          <input class="form-control priority-width" type="number" name="FilterPriorityTo" [(ngModel)]="FilterPriorityTo" />
+
         </div>
       </div>
 
@@ -32,24 +32,23 @@
         <div class="form-group  pading-bottom">
 
           <label class="label-width">Start Date</label>
-          <input class="form-control date-width marjin-right10" type="text" name="FilterStartDate" [(ngModel)]="FilterStartDate" 
-          />
+          <input class="form-control date-width marjin-right10" type="text" name="FilterStartDate" [(ngModel)]="FilterStartDate" />
 
           <!-- <div class="input-group">
-            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="FilterStartDate" ngbDatepicker #startDt="ngbDatepicker">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary calendar" (click)="FilterStartDate.toggle()" type="button"></button>
-            </div>
+            <input class="form-control date-width marjin-right10" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="FilterStartDate" ngbDatepicker
+              #FilterStartDt="ngbDatepicker">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar" (click)="FilterStartDt.toggle()"></span>
+            </span>
           </div> -->
 
           <label class="label-width">End Date</label>
-          <input class="form-control date-width" type="text" name="FilterEndDate" [(ngModel)]="FilterEndDate" 
-          />
+          <input class="form-control date-width" type="text" name="FilterEndDate" [(ngModel)]="FilterEndDate" /> 
           <!-- <div class="input-group">
-            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="FilterStartDate" ngbDatepicker #startDt="ngbDatepicker">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary calendar" (click)="FilterStartDate.toggle()" type="button"></button>
-            </div>
+            <input class="form-control date-width" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="FilterEndDate" ngbDatepicker #FilterEndDt="ngbDatepicker">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar" (click)="FilterEndDt.toggle()"></span>
+            </span>
           </div> -->
         </div>
       </div>
@@ -78,7 +77,7 @@
       <td>{{ task.StartDt | date }}</td>
       <td>{{ task.EndDt | date }}</td>
       <td>
-        <button class="btn btn-info" [routerLink]="['/edit-task', task.TaskId ]" [disabled]="task.TaskStatus=='N'"  >Edit</button>
+        <button class="btn btn-info" [routerLink]="['/edit-task', task.TaskId ]" [disabled]="task.TaskStatus=='N'">Edit</button>
         <button class="btn btn-danger margin-left" (click)="endTask(task)" [disabled]="task.TaskStatus=='N'">End Task</button>
         <!-- <button class="btn btn-danger margin-left" (click)="deleteTask(task)" > Delete</button>  -->
       </td>

@@ -21,7 +21,6 @@ import { NgbDatepickerModule,NgbDatepickerConfig } from '@ng-bootstrap/ng-bootst
     ViewTaskComponent,
     TaskFilterPipe
     
-    
   ],
   imports: [
     BrowserModule,

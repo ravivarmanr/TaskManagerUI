@@ -28,7 +28,6 @@ export class ViewTaskComponent implements OnInit {
 
   ngOnInit() {
     this.loadTaskDetails();
-
   }
 
   loadTaskDetails(): void {
